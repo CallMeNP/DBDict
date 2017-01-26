@@ -44,7 +44,7 @@ class Controller
         $rows=$schema->list($fields, $serverId);
         echo \DBDict\Tpl::render('schemaList.html', [
             'modeLinks'=>modeLinks(),
-            'breadcrumb'=>breadcrumb($mode, $serverId, $schemaName, $tableName),
+            'breadcrumb'=>breadcrumb($mode, $serverId),
             'itemBaseUrl'=>itemBaseUrl('tableList'),
             'serverId'=>$serverId,
             'mode'=>$mode,
