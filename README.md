@@ -1,7 +1,10 @@
 # DBDict
 数据字典,data-dictionary,数据库字段文档,db-doc
 ## 介绍
+
 原理是从数据库中读取字段注释等信息展示出来。
+有一些生成静态html的程序。但是项目中，每周迭代，经常有新功能增加数据库字段或表。
+静态文件的生成和部署如果自动化也小麻烦。所以写个动态读取展示的。
 
 目前只支持mysql。从`information_schama`中的`SCHEMATA`,`TABLES`,`COLUMNS`三个表读取信息。
 ## 安装
