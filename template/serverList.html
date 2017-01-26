@@ -1,0 +1,12 @@
+{% include 'header.html' %}
+<table class="table table-striped">
+    <tr>
+        <th>#</th>
+        {% for field in fields %}<th>{{ field }}</th>{% endfor %}
+    </tr>
+    {% for id,row in rows %}<tr>
+        <td><a href="{{itemBaseUrl}}&serverId={{id}}">show</a></th>
+        {% for field in row %} <td>{{ field }}</td>{% endfor %}
+    </tr>{% endfor %}
+</table>
+{% include 'footer.html' %}

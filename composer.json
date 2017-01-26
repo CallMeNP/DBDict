@@ -1,0 +1,21 @@
+{
+    "name": "callmenp/data_dictionary",
+    "type": "project",
+    "require": {
+        "twig/twig": ">=1.0",
+        "php": ">=5.0.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "CallMeNP",
+            "email": "np.liamg@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "DBDict\\": "src/"
+        }
+    },  
+    "minimum-stability": "stable"
+}

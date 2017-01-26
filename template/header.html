@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <ol class="breadcrumb">
+        <li>navigate:</li>
+        {% for item in breadcrumb %}
+        <li><a href="{{item.url}}">{{item.text}}</a> </li>
+        {% endfor %}
+        </ol>

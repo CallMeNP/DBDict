@@ -1,0 +1,10 @@
+{% include 'header.html' %}
+<table class="table table-striped">
+    <tr>
+        {% for field in fields %}<th>{{ field }}</th>{% endfor %}
+    </tr>
+    {% for row in rows %}<tr>
+        {% for field in row %} <td>{{ field }}</td>{% endfor %}
+    </tr>{% endfor %}
+</table>
+{% include 'footer.html' %}
