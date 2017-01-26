@@ -6,7 +6,7 @@ class Tpl
     public static $_tpl=null;
     public static function render()
     {
-        if (!$_tpl) {
+        if (!self::$_tpl) {
             self::init();
         }
         return call_user_func_array([self::$_tpl, 'render'], func_get_args());

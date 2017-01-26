@@ -7,7 +7,9 @@ class Schema
     {
         $pdo=(new Server)->getConnection($serverName);
         $query = $pdo->prepare('select '.implode(',', $fields).' from SCHEMATA where SCHEMA_NAME not in ("information_schema","mysql","performance_schema")');
-        $query->execute();
+        if (!$query->execute()) {
+            var_dump($query->errorInfo());
+        }
         $tables = $query->fetchAll();
         return $tables;
     }
@@ -16,7 +18,9 @@ class Schema
     {
         $pdo=(new Server)->getConnection($serverName);
         $query = $pdo->prepare('select '.implode(',', $fields).' from SCHEMATA where SCHEMA_NAME = :dbname');
-        $query->execute([':dbname' => $dbName]);
+        if (!$query->execute([':dbname' => $dbName])) {
+            var_dump($query->errorInfo());
+        }
         $table = $query->fetch();
         return $table;
     }

@@ -7,7 +7,9 @@ class Table
     {
         $pdo=(new Server)->getConnection($serverName);
         $query = $pdo->prepare('select '.implode(',', $fields).' from TABLES where TABLE_SCHEMA = :dbname');
-        $query->execute([':dbname' => $dbName]);
+        if (!$query->execute([':dbname' => $dbName])) {
+            var_dump($query->errorInfo());
+        }
         $table = $query->fetchAll();
         return $table;
     }
@@ -15,7 +17,9 @@ class Table
     {
         $pdo=(new Server)->getConnection($serverName);
         $query = $pdo->prepare('select '.implode(',', $fields).' from TABLES where TABLE_SCHEMA = :dbname and TABLE_NAME = :table_name');
-        $query->execute([':dbname' => $dbName, ':table_name'=>$tableName]);
+        if (!$query->execute([':dbname' => $dbName, ':table_name'=>$tableName])) {
+            var_dump($query->errorInfo());
+        }
         $table = $query->fetch();
         return $table;
     }
